@@ -58,6 +58,6 @@ int main(int argc, char *argv[]){
     cout << chrono::duration_cast<chrono::nanoseconds>(elapsedTime).count() << "ns\n";
     cout << "----------------------------------------------------------------------------------------------";
 
-    // Return successful
+    // Return success
     return 0;
 }
