@@ -6,24 +6,24 @@
 using namespace std;
 
 size_t fwriteIntLSB(int data, FILE *stream){
-    unsigned char array[4];
-    array[3] = (unsigned char)((data >> 24) & 0xFF);
-    array[2] = (unsigned char)((data >> 16) & 0xFF);
-    array[1] = (unsigned char)((data >> 8) & 0xFF);
-    array[0] = (unsigned char)(data & 0xFF);
-    return fwrite(array, sizeof(unsigned char), 4, stream);
+    char array[4];
+    array[3] = (char)((data >> 24) & 0xFF);
+    array[2] = (char)((data >> 16) & 0xFF);
+    array[1] = (char)((data >> 8) & 0xFF);
+    array[0] = (char)(data & 0xFF);
+    return fwrite(array, sizeof(char), 4, stream);
 }
 
-size_t fwriteShortLSB(short int data, FILE *stream){
-    unsigned char array[2];
-    array[1] = (unsigned char)((data >> 8) & 0xFF);
-    array[0] = (unsigned char)(data & 0xFF);
-    return fwrite(array, sizeof(unsigned char), 2, stream);
+size_t fwriteShortLSB(short data, FILE *stream){
+    char array[2];
+    array[1] = (char)((data >> 8) & 0xFF);
+    array[0] = (char)(data & 0xFF);
+    return fwrite(array, sizeof(char), 2, stream);
 }
 
 WavFile* readWavFile(const char* filePath){
     WavFile* wavFile = new WavFile();
-    FILE* inputFile = fopen(filePath, "r");
+    FILE* inputFile = fopen(filePath, "rb");
 
     fread(wavFile->chunkID, sizeof(char), 4, inputFile);
     fread(&wavFile->chunkSize, sizeof(int), 1, inputFile);
@@ -45,7 +45,7 @@ WavFile* readWavFile(const char* filePath){
 
     wavFile->data = (float*) malloc(sizeof(float) * wavFile->subChunk2Size);
     for(int i = 0; i < wavFile->subChunk2Size; i++){
-        wavFile->data[i] = (float) rawData[i] / 32768.0f;
+        wavFile->data[i] = ((float) rawData[i] / 32768.0f) / 2.0f;
     }
 
     cout << "Input File: " + (string)filePath + "\n";
@@ -56,7 +56,7 @@ WavFile* readWavFile(const char* filePath){
 WavFile* createWavFile(float* data, int dataSize) {
     WavFile *wavFile = new WavFile();
     strcpy(wavFile->chunkID, "RIFF");
-    wavFile->chunkSize = 38 + dataSize;
+    wavFile->chunkSize = 36 + dataSize;
     strcpy(wavFile->format, "WAVE");
     strcpy(wavFile->subChunk1ID, "fmt ");
     wavFile->subChunk1Size = 16;
@@ -77,7 +77,7 @@ void writeWavFile(WavFile* wavFile, const char* outFileName){
     FILE* outputFile = fopen(outFileName, "wb");
     if (outputFile == nullptr) cout << "Failed to create output file!\n";
     fputs("RIFF", outputFile);
-    fwriteIntLSB(38 + wavFile->subChunk2Size, outputFile);
+    fwriteIntLSB(36 + wavFile->subChunk2Size, outputFile);
     fputs("WAVE", outputFile);
     fputs("fmt ", outputFile);
     fwriteIntLSB(16, outputFile);       // ****
@@ -92,7 +92,7 @@ void writeWavFile(WavFile* wavFile, const char* outFileName){
 
     // Write Data
     for(int i = 0; i < wavFile->subChunk2Size; i++){
-        fwriteShortLSB((short)(wavFile->data[i] * 32768.f * 0.4f), outputFile);
+        fwriteShortLSB((short)(wavFile->data[i] * 32768.f), outputFile);
     }
     fclose(outputFile);
     cout << "Output File: " + (string)outFileName + "\n";
@@ -135,6 +135,6 @@ void printWavFile(WavFile* wavFile){
     cout << wavFile->subChunk2ID[2];
     cout << wavFile->subChunk2ID[3];
     cout << "\n";
-    cout << "SubChunk2 Size: " + to_string(wavFile->subChunk2Size) + "\n";
+    cout << "SubChunk2 Size: " << wavFile->subChunk2Size << "\n";
     cout << "----------------------------------------------------------------------------------------------\n";
 }

@@ -54,8 +54,7 @@ int main(int argc, char *argv[]){
     auto elapsedTime = (endTime - startTime);
     cout << "Convolution Processing Time:\n";
     cout << chrono::duration_cast<chrono::seconds>(elapsedTime).count() << "s / ";
-    cout << chrono::duration_cast<chrono::milliseconds>(elapsedTime).count() << "ms / ";
-    cout << chrono::duration_cast<chrono::nanoseconds>(elapsedTime).count() << "ns\n";
+    cout << chrono::duration_cast<chrono::milliseconds>(elapsedTime).count() << "ms\n";
     cout << "----------------------------------------------------------------------------------------------";
 
     // Return success
