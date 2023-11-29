@@ -1,27 +1,11 @@
 #include "Convolve.h"
-#include "WavReader.h"
+#include "TimeDomain.h"
+#include "FastFourier.h"
 #include <string>
 #include <iostream>
 #include <chrono>
 
 using namespace std;
-
-void convolve(WavFile* inputFile, WavFile* IRFile, const char* outputFileName){
-    int N = inputFile->subChunk2Size;
-    int M = IRFile->subChunk2Size;
-    float* x = inputFile->data;
-    float* h = IRFile->data;
-    float* y = (float*) malloc(sizeof(float) * (N + M - 1));
-
-    for(int n = 0; n < N; n++){
-        for(int m = 0; m < M; m++){
-            y[n + m] += x[n] * h[m];
-        }
-    }
-
-    WavFile* outputFile = createWavFile(y, N + M - 1);
-    writeWavFile(outputFile, outputFileName);
-}
 
 int main(int argc, char *argv[]){
     // Check argument list length
@@ -47,7 +31,8 @@ int main(int argc, char *argv[]){
 
     // Convolve
     auto startTime = chrono::high_resolution_clock::now();
-    convolve(inputWav, irWav, outputPath.c_str());
+    //convolve_inputSide(inputWav, irWav, outputPath.c_str());      // Time Domain Convolution
+    convolve_fft(inputWav, irWav, outputPath.c_str());              // Fast Fourier Convolution
     auto endTime = chrono::high_resolution_clock::now();
 
     // Compute convolution processing time

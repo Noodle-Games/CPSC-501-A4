@@ -9,4 +9,8 @@ add_executable(cpsc_501_a4
         Convolve.cpp
         Convolve.h
         WavReader.h
-        WavReader.cpp)
+        WavReader.cpp
+        TimeDomain.h
+        TimeDomain.cpp
+        FastFourier.h
+        FastFourier.cpp)

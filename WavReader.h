@@ -1,3 +1,5 @@
+#pragma once
+
 struct WavFile {
     // RIFF Chunk Descriptor
     char chunkID[4];

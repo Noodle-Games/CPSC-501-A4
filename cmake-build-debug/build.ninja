@@ -63,6 +63,20 @@ build CMakeFiles/cpsc_501_a4.dir/WavReader.cpp.obj: CXX_COMPILER__cpsc_501_a4_un
   OBJECT_DIR = CMakeFiles\cpsc_501_a4.dir
   OBJECT_FILE_DIR = CMakeFiles\cpsc_501_a4.dir
 
+build CMakeFiles/cpsc_501_a4.dir/TimeDomain.cpp.obj: CXX_COMPILER__cpsc_501_a4_unscanned_Debug C$:/Users/mrnoo/Desktop/School/CPSC501/A4/cpsc_501_a4/TimeDomain.cpp || cmake_object_order_depends_target_cpsc_501_a4
+  DEP_FILE = CMakeFiles\cpsc_501_a4.dir\TimeDomain.cpp.obj.d
+  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/mrnoo/Desktop/School/CPSC501/A4/cpsc_501_a4/.
+  OBJECT_DIR = CMakeFiles\cpsc_501_a4.dir
+  OBJECT_FILE_DIR = CMakeFiles\cpsc_501_a4.dir
+
+build CMakeFiles/cpsc_501_a4.dir/FastFourier.cpp.obj: CXX_COMPILER__cpsc_501_a4_unscanned_Debug C$:/Users/mrnoo/Desktop/School/CPSC501/A4/cpsc_501_a4/FastFourier.cpp || cmake_object_order_depends_target_cpsc_501_a4
+  DEP_FILE = CMakeFiles\cpsc_501_a4.dir\FastFourier.cpp.obj.d
+  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/mrnoo/Desktop/School/CPSC501/A4/cpsc_501_a4/.
+  OBJECT_DIR = CMakeFiles\cpsc_501_a4.dir
+  OBJECT_FILE_DIR = CMakeFiles\cpsc_501_a4.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target cpsc_501_a4
@@ -71,7 +85,7 @@ build CMakeFiles/cpsc_501_a4.dir/WavReader.cpp.obj: CXX_COMPILER__cpsc_501_a4_un
 #############################################
 # Link the executable cpsc_501_a4.exe
 
-build cpsc_501_a4.exe: CXX_EXECUTABLE_LINKER__cpsc_501_a4_Debug CMakeFiles/cpsc_501_a4.dir/Convolve.cpp.obj CMakeFiles/cpsc_501_a4.dir/WavReader.cpp.obj
+build cpsc_501_a4.exe: CXX_EXECUTABLE_LINKER__cpsc_501_a4_Debug CMakeFiles/cpsc_501_a4.dir/Convolve.cpp.obj CMakeFiles/cpsc_501_a4.dir/WavReader.cpp.obj CMakeFiles/cpsc_501_a4.dir/TimeDomain.cpp.obj CMakeFiles/cpsc_501_a4.dir/FastFourier.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\cpsc_501_a4.dir
