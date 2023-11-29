@@ -1,3 +1,0 @@
-C:/Users/mrnoo/Desktop/School/CPSC501/A4/cpsc_501_a4/cmake-build-debug/CMakeFiles/cpsc_501_a4.dir
-C:/Users/mrnoo/Desktop/School/CPSC501/A4/cpsc_501_a4/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/mrnoo/Desktop/School/CPSC501/A4/cpsc_501_a4/cmake-build-debug/CMakeFiles/rebuild_cache.dir
