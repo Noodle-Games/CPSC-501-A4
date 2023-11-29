@@ -1,6 +1,5 @@
 #include "FastFourier.h"
 #include <cmath>
-#include <iostream>
 
 using namespace std;
 

@@ -2,10 +2,10 @@ Time Domain Convolution:
  - dry_guitar.wav -> 40s
  - ir_bigHall.wav -> 2s
 Convolution Processing Time:
-28.9mins / 1735s / 1735465ms
+ - 28.9mins / 1735s / 1735465ms
 
 Fast Fourier Convolution:
  - dry_guitar.wav -> 40s
  - ir_bigHall.wav -> 2s
 Convolution Runtime:
-0mins / 4s / 4162ms
+ - 0mins / 4s / 4162ms
