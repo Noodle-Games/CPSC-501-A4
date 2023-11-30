@@ -1,7 +1,7 @@
 #include "TimeDomain.h"
 #include <iostream>
 
-void convolve_inputSide(WavFile* inputFile, WavFile* IRFile, const char* outputFileName){
+void convolve_timeDomain(WavFile* inputFile, WavFile* IRFile, const char* outputFileName){
     int N = inputFile->subChunk2Size;
     int M = IRFile->subChunk2Size;
     float* x = inputFile->data;
