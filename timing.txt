@@ -39,3 +39,9 @@ Strength Reduction:
   - ir_bigHall.wav -> 2s
  Convolution Runtime:
   - 0mins / 2s / 2454ms
+
+Initialize at Compile Time:
+  - dry_guitar.wav -> 40s
+  - ir_bigHall.wav -> 2s
+ Convolution Runtime:
+  - 0mins / 2s / 2451ms

@@ -27,7 +27,7 @@ void convolve_fft(WavFile* inputFile, WavFile* IRFile, const char* outputFileNam
     fourierTransform(Y, halfDataSize, -1);
 
     // Scale by N
-    double N = 100.0 * 32768.0;
+    const double N = 3276800.0;
     for(int i = 0; i < dataSize; i++){
         Y[i] /= N;
     }
