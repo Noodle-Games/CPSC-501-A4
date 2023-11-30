@@ -1,6 +1,7 @@
 #include "Convolve.h"
 #include "TimeDomain.h"
 #include "FastFourier.h"
+#include "TestConvolve.h"
 #include <string>
 #include <iostream>
 #include <chrono>
@@ -10,10 +11,19 @@ using namespace std;
 int main(int argc, char *argv[]){
     // Check argument list length
     if (argc != 4) {
-        cout << "Usage: convolve inputfile IRfile outputfile\n";
-        return -1;
+        if (argc == 1){
+            unitTest();
+            return 1;
+        }
+        else {
+            cout << "Usage: convolve inputfile IRfile outputfile\n";
+            return -1;
+        }
     }
+    return convolve(argv);
+}
 
+int convolve(char *argv[]){
     // Print input
     cout << "----------------------------------------------------------------------------------------------";
     cout << "\nDry Recording: " + (string)argv[1];

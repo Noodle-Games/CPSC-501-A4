@@ -13,4 +13,6 @@ add_executable(cpsc_501_a4
         TimeDomain.h
         TimeDomain.cpp
         FastFourier.h
-        FastFourier.cpp)
+        FastFourier.cpp
+        TestConvolve.h
+        TestConvolve.cpp)
