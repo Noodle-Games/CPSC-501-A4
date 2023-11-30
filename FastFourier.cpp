@@ -41,15 +41,12 @@ double* toDoubleArray(const float* array, int size, int paddedSize){
     int newSize = size * 2;
     double* newArray = (double*) malloc(sizeof(double) * paddedSize);
     int j = 0;
-    for (int i = 0; i < newSize; i++){
-        if (i % 2 == 0){
+    for (int i = 0; i < paddedSize; i++){
+        if (i % 2 == 0 && i < newSize){
             newArray[i] = array[j];
             j++;
         }
-        else newArray[i] = 0;
-    }
-    for (int i = newSize; i < paddedSize; i++){
-        newArray[i] = 0.0;
+        else newArray[i] = 0.0;
     }
     return newArray;
 }

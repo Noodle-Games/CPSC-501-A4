@@ -20,5 +20,10 @@ Eliminate Common Subexpressions:
  - dry_guitar.wav -> 40s
  - ir_bigHall.wav -> 2s
 Convolution Runtime:
- - 0mins / 2s / 2446ms
+ - 0mins / 2s / 2464ms
 
+Jamming / Fusion:
+ - dry_guitar.wav -> 40s
+ - ir_bigHall.wav -> 2s
+Convolution Runtime:
+ - 0mins / 2s / 2457ms
