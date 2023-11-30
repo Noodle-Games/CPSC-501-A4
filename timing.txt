@@ -33,3 +33,9 @@ Minimize Work Done Inside Loops:
   - ir_bigHall.wav -> 2s
  Convolution Runtime:
   - 0mins / 2s / 2448ms
+
+Strength Reduction:
+  - dry_guitar.wav -> 40s
+  - ir_bigHall.wav -> 2s
+ Convolution Runtime:
+  - 0mins / 2s / 2454ms

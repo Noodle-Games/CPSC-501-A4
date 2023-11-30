@@ -64,7 +64,7 @@ float* toFloatArray(const double* array, int size){
 int nextPowerOf2(int x){
     int power = 1;
     while (power < x) {
-        power *= 2;
+        power += power;
     }
     return power;
 }
