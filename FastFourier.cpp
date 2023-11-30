@@ -8,12 +8,13 @@ using namespace std;
 void convolve_fft(WavFile* inputFile, WavFile* IRFile, const char* outputFileName){
     // Convert data to padded, power of 2 sized double arrays
     int dataSize = nextPowerOf2(inputFile->subChunk2Size * 2);
+    int halfDataSize = dataSize / 2;
     double* X = toDoubleArray(inputFile->data, inputFile->subChunk2Size, dataSize);
     double* H = toDoubleArray(IRFile->data, IRFile->subChunk2Size, dataSize);
 
     // Fourier Transform
-    fourierTransform(X, dataSize / 2, 1);
-    fourierTransform(H, dataSize / 2, 1);
+    fourierTransform(X, halfDataSize, 1);
+    fourierTransform(H, halfDataSize, 1);
 
     // Complex Multiplication
     double* Y = (double*) malloc(sizeof(double) * dataSize);
@@ -23,7 +24,7 @@ void convolve_fft(WavFile* inputFile, WavFile* IRFile, const char* outputFileNam
     }
 
     // Inverse Fourier Transform
-    fourierTransform(Y, dataSize / 2, -1);
+    fourierTransform(Y, halfDataSize, -1);
 
     // Scale by N
     double N = 100.0 * 32768.0;
@@ -32,7 +33,7 @@ void convolve_fft(WavFile* inputFile, WavFile* IRFile, const char* outputFileNam
     }
 
     // Write to Wave File
-    WavFile* outputFile = createWavFile(toFloatArray(Y, dataSize), dataSize / 2);
+    WavFile* outputFile = createWavFile(toFloatArray(Y, dataSize), halfDataSize);
     writeWavFile(outputFile, outputFileName);
 }
 

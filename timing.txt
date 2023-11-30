@@ -10,8 +10,15 @@ Fast Fourier Convolution:
 Convolution Runtime:
  - 0mins / 4s / 4162ms
 
-Optimization Flag O1:
+Optimization Flag -O1:
  - dry_guitar.wav -> 40s
  - ir_bigHall.wav -> 2s
 Convolution Runtime:
  - 0mins / 2s / 2472ms
+
+Eliminate Common Subexpressions:
+ - dry_guitar.wav -> 40s
+ - ir_bigHall.wav -> 2s
+Convolution Runtime:
+ - 0mins / 2s / 2446ms
+

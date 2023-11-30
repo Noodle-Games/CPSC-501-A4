@@ -9,7 +9,10 @@ using namespace std;
 
 int main(int argc, char *argv[]){
     // Check argument list length
-    if (argc != 4) return -1;
+    if (argc != 4) {
+        cout << "Usage: convolve inputfile IRfile outputfile\n";
+        return -1;
+    }
 
     // Print input
     cout << "----------------------------------------------------------------------------------------------";
