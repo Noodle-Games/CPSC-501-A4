@@ -27,3 +27,9 @@ Jamming / Fusion:
  - ir_bigHall.wav -> 2s
 Convolution Runtime:
  - 0mins / 2s / 2457ms
+
+Minimize Work Done Inside Loops:
+  - dry_guitar.wav -> 40s
+  - ir_bigHall.wav -> 2s
+ Convolution Runtime:
+  - 0mins / 2s / 2448ms

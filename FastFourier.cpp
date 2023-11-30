@@ -54,11 +54,9 @@ double* toDoubleArray(const float* array, int size, int paddedSize){
 float* toFloatArray(const double* array, int size){
     float* newArray = (float*) malloc(sizeof(float) * (size / 2));
     int j = 0;
-    for(int i = 0; i < size; i++){
-        if (i % 2 == 0){
-            newArray[j] = (float)array[i];
-            j++;
-        }
+    for (int i = 0; i < size; i += 2){
+        newArray[j] = (float)array[i];
+        j++;
     }
     return newArray;
 }
